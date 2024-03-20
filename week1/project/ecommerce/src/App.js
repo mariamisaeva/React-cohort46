@@ -10,7 +10,7 @@ function App() {
 
     const handleCategoryClick = (category) => {
 
-        setSelectedCategory(category);
+        setSelectedCategory((currentCategory) => currentCategory === category ? '' : category);
     };
 
     return (
