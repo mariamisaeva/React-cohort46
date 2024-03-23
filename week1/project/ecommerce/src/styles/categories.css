@@ -17,3 +17,7 @@
 .category:hover {
     cursor: pointer;
 }
+
+.category.active {
+    background-color: rgb(8, 131, 162); /* Change the background color for the active category */
+}

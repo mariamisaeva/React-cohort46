@@ -1,6 +1,6 @@
 import React from 'react';
-import categoriesArr from './fake-data/all-categories.js';
-import './styles/categories.css';
+import categoriesArr from '../fake-data/all-categories.js';
+import '../styles/categories.css';
 
 function Categories({ selectedCategory, onCategoryClick }) {
     return (

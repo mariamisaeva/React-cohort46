@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 //import './App.css';
-import AllCategories from './Categories';
-import AllProducts from './Products';
+import Categories from './components/Categories';
+import Products from './components/Products';
 
 
 function App() {
@@ -16,11 +16,11 @@ function App() {
     return (
         <div className="App">
             <h1>Products</h1>
-            <AllCategories
+            <Categories
                 selectedCategory={selectedCategory}
                 onCategoryClick={handleCategoryClick} />
 
-            <AllProducts selectedCategory={selectedCategory} />
+            <Products selectedCategory={selectedCategory} />
 
         </div>
     );
