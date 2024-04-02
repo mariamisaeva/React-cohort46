@@ -1,0 +1,25 @@
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+
+.productCard {
+    width: 25%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.productCard img {
+    width: 70%;
+
+}
+
+.loadingProducts{
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    margin-top: 100px;
+    color:rgb(3, 177, 177);
+}

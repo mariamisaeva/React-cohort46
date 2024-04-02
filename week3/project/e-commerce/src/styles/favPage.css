@@ -1,0 +1,15 @@
+.favorite-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.favProduct {
+  width: 25%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.favProduct img {
+  width: 70%;
+}
