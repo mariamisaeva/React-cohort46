@@ -1,9 +1,8 @@
 import React, { useState, createContext } from 'react'; //import createContext
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
-import Categories from './components/Categories';
-import Products from './components/Products';
-import CardDetails from './components/CardDetails';
+import Home from './pages/Home';
+import CardDetails from './pages/ProductDetails';
 import FavPage from './components/FavPage';
 import { Link } from "react-router-dom";
 
@@ -14,12 +13,6 @@ const FavContext = createContext(); //create a context
 function App() {
 
     const [favList, setFavList] = useState([]);  //state to keep track of fav array
-
-    const [selectedCategory, setSelectedCategory] = useState('');
-
-    const handleCategoryClick = (category) => {
-        setSelectedCategory((currentCategory) => currentCategory === category ? '' : category);
-    };
 
     return (
         <Router>
@@ -36,15 +29,7 @@ function App() {
                     <Routes>
                         <Route
                             path="/"
-                            element={
-                                <>
-                                    <Categories
-                                        selectedCategory={selectedCategory}
-                                        onCategoryClick={handleCategoryClick}
-                                    />
-                                    <Products selectedCategory={selectedCategory} />
-                                </>
-                            }
+                            element={<Home />}
                         />
 
                         <Route path="/products/:id" element={<CardDetails />} />
