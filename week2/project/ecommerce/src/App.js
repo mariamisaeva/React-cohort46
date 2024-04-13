@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
-import Categories from './components/Categories';
-import Products from './components/Products';
-import CardDetails from './components/CardDetails';
+import Home from './pages/Home';
+import ProductDetails from './pages/ProductDetails';
 
 
 function App() {
-
-    const [selectedCategory, setSelectedCategory] = useState('');
-
-    const handleCategoryClick = (category) => {
-        setSelectedCategory((currentCategory) => currentCategory === category ? '' : category);
-    };
 
     return (
         <Router>
@@ -23,17 +16,9 @@ function App() {
                 <Routes>
                     <Route
                         path="/"
-                        element={
-                            <>
-                                <Categories
-                                    selectedCategory={selectedCategory}
-                                    onCategoryClick={handleCategoryClick}
-                                />
-                                <Products selectedCategory={selectedCategory} />
-                            </>
-                        }
+                        element={<Home />}
                     />
-                    <Route path="/products/:id" element={<CardDetails />} />
+                    <Route path="/products/:id" element={<ProductDetails />} />
                 </Routes>
 
             </div >

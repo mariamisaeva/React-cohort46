@@ -6,7 +6,7 @@ import '../styles/products.css'
 
 function Products({ selectedCategory }) {
     const [products, setProducts] = useState([]);
-    const [loadingProducts, setLoadingProducts] = useState(false);
+    const [loadingProducts, setLoadingProducts] = useState(true);
     const [error, setError] = useState(null);
     /**
      * https://fakestoreapi.com/products or 
@@ -15,15 +15,13 @@ function Products({ selectedCategory }) {
     useEffect(() => {
         const fetchData = async () => {
 
-            setLoadingProducts(true);
-
             try {
-                const URL_2 = selectedCategory ? `https://fakestoreapi.com/products/category/${selectedCategory}` : `https://fakestoreapi.com/products`;
+                const url = selectedCategory ? `https://fakestoreapi.com/products/category/${selectedCategory}` : `https://fakestoreapi.com/products`;
 
-                const response = await fetch(URL_2);
+                const response = await fetch(url);
 
                 if (!response.ok) {
-                    throw new Error(`Error! status: ${response.status}`);
+                    console.error(`Error fetching data!`);
                 }
 
                 const jsonData = await response.json();
@@ -32,12 +30,11 @@ function Products({ selectedCategory }) {
 
             } catch (err) {
                 console.error('Error fetching products:', err);
-                setLoadingProducts(false);
                 setError(err);
             }
-
-            setLoadingProducts(false);
-
+            finally {
+                setLoadingProducts(false);
+            }
         }
 
         fetchData();

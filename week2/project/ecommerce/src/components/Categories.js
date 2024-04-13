@@ -5,13 +5,12 @@ import '../styles/categories.css';
 function Categories({ selectedCategory, onCategoryClick }) {
 
     const [categories, setCategories] = useState([]); //to fetch categories
-    // const [loadingCategories, setLoadingCategories] = useState(true);
+    const [loadingCategories, setLoadingCategories] = useState(true);
     const [error, setError] = useState(null);
 
 
     useEffect(() => {
         const fetchData = async () => {
-            //setLoadingCategories(true); //start loading before fetching data
 
             try {
 
@@ -29,11 +28,11 @@ function Categories({ selectedCategory, onCategoryClick }) {
             } catch (err) {
 
                 console.error('Error fetching categories:', err);
-                //    setLoadingCategories(false);
                 setError(err);
             }
-            //   setLoadingCategories(false); //stop loading after fetching data
-
+            finally {
+                setLoadingCategories(false); //stop loading after fetching data
+            }
 
         }
 
@@ -47,7 +46,7 @@ function Categories({ selectedCategory, onCategoryClick }) {
         <div className='catContainer' >
 
             {
-                error ? <div>Error: {error.message}</div> :
+                error ? <div>Error: {error.message}</div> : loadingCategories ? <div className="loadingCategories">Loading Categories ...</div> :
                     (
                         categories.map(
                             (category, index) => //onclick, selectedCategory
