@@ -41,12 +41,11 @@ function Categories({ selectedCategory, onCategoryClick }) {
     }, []);
 
 
-
     return (
         <div className='catContainer' >
 
             {
-                error ? <div>Error: {error.message}</div> : loadingCategories ? <div className="loadingCategories">Loading Categories ...</div> :
+                error ? <div>Error: {error.message}</div > : loadingCategories ? <div className="loadingCategories">Loading Categories ...</div> :
                     (
                         categories.map(
                             (category, index) => //onclick, selectedCategory

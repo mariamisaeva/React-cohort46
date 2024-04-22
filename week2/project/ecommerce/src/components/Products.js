@@ -6,13 +6,14 @@ import '../styles/products.css'
 
 function Products({ selectedCategory }) {
     const [products, setProducts] = useState([]);
-    const [loadingProducts, setLoadingProducts] = useState(true);
+    const [loadingProducts, setLoadingProducts] = useState(false);
     const [error, setError] = useState(null);
     /**
      * https://fakestoreapi.com/products or 
      * https://fakestoreapi.com/products/category/:selectedCategory 
      */
     useEffect(() => {
+        setLoadingProducts(true);
         const fetchData = async () => {
 
             try {

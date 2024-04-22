@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 
 function CardDetails() {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [details, setDetails] = useState(null);
     const [detailsLoading, setDetailsLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -55,6 +56,7 @@ function CardDetails() {
             <img src={details.image} alt={details.title} />
             <p>{details.description}</p>
             <p>${details.price}</p>
+            <button onClick={() => navigate(-1)}>Go Back</button>
         </div>
     );
 
