@@ -10,13 +10,13 @@ function useMultiFetch(urls) {
         const fetchData = async () => {
             try {
 
-                const response = await Promise.all(urls.map(urls => fetch(urls)));
+                const response = await fetch(urls)//Promise.all(urls.map(urls => fetch(urls)));
 
                 if (!response.ok) {
                     throw new Error(`Error!, status: ${response.status}`);
                 }
 
-                const jsonData = await Promise.all(response.map(res => res.json()));
+                const jsonData = await response.json(); //Promise.all(response.map(res => res.json()));
 
                 setData(jsonData);
                 // setLoading(false);

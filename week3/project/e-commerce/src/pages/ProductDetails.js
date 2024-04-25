@@ -15,7 +15,7 @@ function CardDetails() {
     //  const [detailsLoading, setDetailsLoading] = useState(false);
     // const [error, setError] = useState(null);
 
-    const { data: details, loading: detailsLoading, error } = useMultiFetch(`https://fakestoreapi.com/products/${id}`);
+    const { data: details, loading: detailsLoading, error } = useMultiFetch([`https://fakestoreapi.com/products/${id}`]);
 
     /*    useEffect(() => {
             const fetchDetails = async () => {
@@ -62,7 +62,7 @@ function CardDetails() {
     }
 
     if (error) {
-        return <div>Error: {error.message} Found</div>;
+        return <div>Error: {error.message} found</div>;
     }
 
     if (!details) {
