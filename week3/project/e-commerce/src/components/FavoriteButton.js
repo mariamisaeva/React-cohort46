@@ -15,7 +15,7 @@ function FavoriteButton({ productId }) {
 
     return (
         <button id="favButton" onClick={handleToggleFav}>
-            <img src={favList.includes(productId) ? filledHeart : emptyHeart}
+            <img src={favList.includes(parseInt(productId, 10)) ? filledHeart : emptyHeart}
                 alt="fav"
             />
         </button>
