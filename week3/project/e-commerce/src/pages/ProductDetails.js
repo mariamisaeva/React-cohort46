@@ -1,8 +1,5 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-// import { FavContext } from '../App';
-// import filledHeart from '../assets/heart-solid.svg';
-// import emptyHeart from '../assets/heart-regular.svg';
 import useMultiFetch from '../hooks/useFetch';
 import FavoriteButton from '../components/FavoriteButton';
 

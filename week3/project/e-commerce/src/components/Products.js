@@ -11,11 +11,6 @@ function Products({ selectedCategory }) {
     const [error, setError] = useState(null);
     // const [selectedProduct, setSelectedProduct] = useState(null);
 
-    /* The same problem like in favPage.js
-        const URL_2 = selectedCategory ? `https://fakestoreapi.com/products/category/${selectedCategory}` : `https://fakestoreapi.com/products`;
-    
-        const { data: products, loading: loadingProducts, error } = useMultiFetch([URL_2]);*/
-
     useEffect(() => {
         const fetchData = async () => {
 

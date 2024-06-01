@@ -14,10 +14,10 @@ function FavoriteButton({ productId }) {
 
 
     return (
-        <button id="favButton" /*onClick={handleToggleFav}*/>
+        <button id="favButton" onClick={handleToggleFav}>
             <img src={favList.includes(productId) ? filledHeart : emptyHeart}
                 alt="fav"
-                onClick={handleToggleFav} />
+            />
         </button>
     );
 }
