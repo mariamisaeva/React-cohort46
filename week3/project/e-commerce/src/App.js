@@ -7,16 +7,35 @@ import FavPage from './components/FavPage';
 import { Link } from "react-router-dom";
 
 
-const FavContext = createContext(); //create a context
+const FavContext = createContext({
+    favList: [],
+    toggleFav: () => { }
+}); //create a context
 
 
 function App() {
 
-    const [favList, setFavList] = useState([]);  //state to keep track of fav array
+    const [favList, setFavList] = useState(() => {
+        return Array.from(new Set([]));
+    });  //state to keep track of fav array
+
+    const toggleFav = (productId) => {
+        setFavList(prevFavList => {
+            let newList;
+            const id = parseInt(productId, 10); //pars id to number (duplication includes string)
+            if (prevFavList.includes(productId)) {
+                newList = prevFavList.filter(favItem => favItem !== productId);
+            } else {
+                newList = [...prevFavList, id];
+            }
+            // console.log('Updated favList:', newList);
+            return newList;
+        });
+    };
 
     return (
         <Router>
-            <FavContext.Provider value={{ favList, setFavList }}>
+            <FavContext.Provider value={{ favList, toggleFav }}>
                 <div className="App">
 
                     <nav className='nav'>
